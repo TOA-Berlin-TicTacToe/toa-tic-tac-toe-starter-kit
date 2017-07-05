@@ -6,7 +6,7 @@
     "classnames": "^2.2.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-with-socket": "0.0.3",
+    "react-with-socket": "0.0.4",
     "socket.io-client": "^2.0.3"
   },
   "devDependencies": {
