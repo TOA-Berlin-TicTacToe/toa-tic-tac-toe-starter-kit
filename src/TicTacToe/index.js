@@ -9,6 +9,10 @@ class TicTacToe extends React.Component {
     return (
       <div>
         <h1>Hello {username}!</h1>
+
+        <p>
+          <a href="http://35.189.249.30:8080/instructions">Check out the instructions to get started!</a>
+        </p>
       </div>
     );
   }
