@@ -14,6 +14,12 @@ setSocketConfig({
 });
 
 ReactDOM.render(
-    <TicTacToe username={USERNAME} ai={ai} />,
+    <TicTacToe username={getUsername()} ai={ai} />,
     document.getElementById('root')
 );
+
+function getUsername() {
+  const query = window.location.search;
+  const match = query.match('username=(.+)');
+  return match ? match[1] : USERNAME;
+}
