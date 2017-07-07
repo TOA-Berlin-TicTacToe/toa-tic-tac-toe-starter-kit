@@ -388,12 +388,12 @@ We can now put these values on nodes in our game tree. For example, a node repre
 
 Time to get coding! Try to follow the instructions, do not put too much care into understanding everything from the start, we will discuss it in section 3. We can’t jump directly to implementing minimax, the algorithm requires a couple of functions. Let’s start with these now!
 
-1. Open up “ai/index.js”, you will do all coding in this file.
-2. Create a function “didPlayerWin(board, player)” which returns true if the player won, otherwise false.
+1. Open up `ai/index.js`, you will do all coding in this file.
+2. Create a function `didPlayerWin(board, player)` which returns true if the player won, otherwise false.
 hint: you might create the functions isDiagWin, isRowWin, isColWin and use them in this function.
 3. Create a function getUtility(board, players) which returns 10 if players[0] won, -10 if players[1] won and 0 otherwise.
-4. Create a function “createNode(board, action)” which just returns an object {board, action}.
-5. Create a function “applyAction(board, action, player)” which creates a new board with the action performed. It might look like:
+4. Create a function `createNode(board, action)` which just returns an object {board, action}.
+5. Create a function `applyAction(board, action, player)` which creates a new board with the action performed. It might look like:
 
 ```javascript
 function applyAction(board, action, player) {
@@ -403,9 +403,9 @@ function applyAction(board, action, player) {
 };
 ```
 
-note: x.slice() returns a shallow copy of the array referenced by x. This is one way of creating a new board rather than modifying the original board.
+*Hint: `x.slice()` returns a shallow copy of the array referenced by x. This is one way of creating a new board rather than modifying the original board.*
 
-6. Create a function “getSuccessors(board, player, players)” which returns a list of nodes. You need to support two cases in this function:
+6. Create a function `getSuccessors(board, player, players)` which returns a list of nodes. You need to support two cases in this function:
 
 6.1. If players[0] or players[1] won, return an empty list.
 
@@ -424,7 +424,7 @@ function getSuccessors(board, player, players) {
 }
 ```
 
-7. Create a function “minimax(board, isMaxPlayer, players)” which returns 10 if players[0] wins, -10 if players[1] wins and 0 the game ends with a draw. You might just try to implement it line by line for now (not trying to understand everything). We will discuss it more in section 3.
+7. Create a function `minimax(board, isMaxPlayer, players)` which returns 10 if players[0] wins, -10 if players[1] wins and 0 the game ends with a draw. You might just try to implement it line by line for now (not trying to understand everything). We will discuss it more in section 3.
 
 ```
 function minimax(board, isMaxPlayer, players) {
@@ -448,8 +448,8 @@ function minimax(board, isMaxPlayer, players) {
 }
 ```
 
-8. Create a function “getOtherPlayer(players, myPlayer)” which returns the other player in players.
-9. Final step is to actually return an action. Go to “move(game)” which we provided you with.
+8. Create a function `getOtherPlayer(players, myPlayer)` which returns the other player in players.
+9. Final step is to actually return an action. Go to `move(game)` which we provided you with.
 
 In pseudo-code you get something like:
 
@@ -466,7 +466,7 @@ function(game) {
 }
 ```
 
-if you want to go fancy, note that you can break as soon as you found a winning move.
+*Hint: If you want to go fancy, note that you can break as soon as you found a winning move.*
 
 Congratulations! You have built a working AI! If you still have some energy left, you might consider implementing a very powerful optimization called alpha-beta pruning.
 
@@ -474,8 +474,8 @@ Congratulations! You have built a working AI! If you still have some energy left
 
 In short, alpha-beta pruning prevents your minimax implementation from exploring actions that would never be picked anyway. We recommend you to focus on implementing it for now, we will discuss how alpha-beta pruning actually works later in section 3.1. The implementation is easy:
 
-1. In “move(game)” replace the function call minimax(successor.board, false, players) with minimax(successor.board, false, players, -9999, 9999)
-2. Update the function signature “minimax(board, isMaxPlayer, players)” to “minimax(board, isMaxPlayer, players, alpha, beta)”
+1. In `move(game)` replace the function call minimax(successor.board, false, players) with minimax(successor.board, false, players, -9999, 9999)
+2. Update the function signature `minimax(board, isMaxPlayer, players)` to `minimax(board, isMaxPlayer, players, alpha, beta)`
 3. In the function body of minimax, update according to the following pseudo-code (add the bold parts, do not change anything else):
 
 ```javascript
@@ -506,7 +506,7 @@ Phew! That’ was quite some code. By now you should have something working. Let
 1. getUtility
 2. getSuccessors
 
-We then created a bunch of helper methods, like “didPlayerWin(board, player)” so that we could implement these. We didn’t really talk much about minimax itself. What is actually going on? Well, as mentioned in section 1, minimax is based on the Min will try to minimize the score while Max will try to maximize the score. This allows us to predict actions as the game goes on. If Min can chose, Min will always chose a path going towards a final state where the score is -10, 0 or as a last resort 10. Max will do the opposite. When considering the start (empty board) we can’t say much. But by simulating games (performing action after action) we can find all possible outcomes. Once we found an outcome where we win, we can see if this outcome is reachable by playing the game backwards. If not, we try another outcome where we win (or get the highest possible score). See fig. 4 for a visualization of leaf nodes and their associated scores.
+We then created a bunch of helper methods, like `didPlayerWin(board, player)` so that we could implement these. We didn’t really talk much about minimax itself. What is actually going on? Well, as mentioned in section 1, minimax is based on the Min will try to minimize the score while Max will try to maximize the score. This allows us to predict actions as the game goes on. If Min can chose, Min will always chose a path going towards a final state where the score is -10, 0 or as a last resort 10. Max will do the opposite. When considering the start (empty board) we can’t say much. But by simulating games (performing action after action) we can find all possible outcomes. Once we found an outcome where we win, we can see if this outcome is reachable by playing the game backwards. If not, we try another outcome where we win (or get the highest possible score). See fig. 4 for a visualization of leaf nodes and their associated scores.
 
 TODO IMAGE
 
