@@ -406,8 +406,10 @@ function applyAction(board, action, player) {
 note: x.slice() returns a shallow copy of the array referenced by x. This is one way of creating a new board rather than modifying the original board.
 
 6. Create a function “getSuccessors(board, player, players)” which returns a list of nodes. You need to support two cases in this function:
-6. a. If players[0] or players[1] won, return an empty list.
-6. b. Else: For every empty spot on the board (represented by empty string), create a new board where the empty spot has been filled with the value of player. eg. [[‘’, ‘’, ‘’], [‘’, ‘’, ‘’], [‘’, ‘’, ‘’]] would have nine successor boards, two of them being: [[‘X’, ‘’, ‘’], [‘’, ‘’, ‘’], [‘’, ‘’, ‘’]] and [[‘’, ‘X’, ‘’], [‘’, ‘’, ‘’], [‘’, ‘’, ‘’]].
+
+6.1. If players[0] or players[1] won, return an empty list.
+
+6.2. Else: For every empty spot on the board (represented by empty string), create a new board where the empty spot has been filled with the value of player. eg. [[‘’, ‘’, ‘’], [‘’, ‘’, ‘’], [‘’, ‘’, ‘’]] would have nine successor boards, two of them being: [[‘X’, ‘’, ‘’], [‘’, ‘’, ‘’], [‘’, ‘’, ‘’]] and [[‘’, ‘X’, ‘’], [‘’, ‘’, ‘’], [‘’, ‘’, ‘’]].
 
 ```javascript
 function getSuccessors(board, player, players) {
