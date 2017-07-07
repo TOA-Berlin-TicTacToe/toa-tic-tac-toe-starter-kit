@@ -2,6 +2,10 @@
 
 Welcome! As promised, we will guide you through building your own Tic-Tac-Toe client this evening. We have provided you with some code already, so that you can quickly get started. This document will briefly explain what React is, the code we provided you with and help you through implementing a fully working tic-tac-toe client that can play on our game server.
 
+* [React Client](#react-client)
+  * [And a table of contents](#and-a-table-of-contents)
+  * [On the right](#on-the-right)
+
 ## React Client
 
 ### 1. A React.js Primer
