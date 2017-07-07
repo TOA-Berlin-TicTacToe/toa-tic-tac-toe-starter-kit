@@ -3,12 +3,17 @@
 Welcome! As promised, we will guide you through building your own Tic-Tac-Toe client this evening. We have provided you with some code already, so that you can quickly get started. This document will briefly explain what React is, the code we provided you with and help you through implementing a fully working tic-tac-toe client that can play on our game server.
 
 * [React Client](#react-client)
-  * [And a table of contents](#and-a-table-of-contents)
-  * [On the right](#on-the-right)
+  * [A React Primer](#a-react-primer)
+  * [Tic-Tac-Toe Boilerplate Project](#tic-tac-toe-boilerplate-project)
+  * [Client Implementation](#client-implementation)
+* [AI](#ai)
+  * [Theory](#theory)
+  * [AI Implementation](#ai-implementation)
+  * [Discussion](#discussion)
 
 ## React Client
 
-### 1. A React.js Primer
+### A React Primer
 
 (feel free to skip this part if you have React experience)
 
@@ -109,7 +114,7 @@ function Username({ username }) {
 
 That’s it. With that knowledge you can already start to build UIs with React.
 
-### 2. Tic-Tac-Toe Boilerplate Project
+### Tic-Tac-Toe Boilerplate Project
 
 During this event you will build a Tic-Tac-Toe client. Therefore we provide you with a boilerplate project that you can clone from GitHub. It should give you a proper starting point to begin immediately writing your first React component.
 
@@ -135,7 +140,7 @@ As you can see, the React component with the name `TicTacToe` already receives p
 
 By having the higher order component, you don’t need to care about how to update the game server, how to receive updates from it and how to store the client-sided game state. (If you are curious later on, you can checkout the `withTicTacToe` higher order component to see how it works.) Now you could start to implement your game.
 
-### 3. Implementation
+### Client Implementation
 
 #### 3.1 Setup
 
@@ -358,7 +363,7 @@ Tac Toe master!
 
 Congratulations! You made it to the second part of this event. This document briefly explains what AI is, explains the concepts you need for building an AI for Tic-Tac-Toe and finally guides you through how to implement your own AI and discusses the implementation.
 
-### 1. Theory
+### Theory
 
 Have you ever thought about what intelligence really is? We need some kind of idea of intelligence in order to build it. A core concept in artificial intelligence is the study of intelligent agents. This concept offers one simple way of looking at intelligence. An intelligent agent is defined as an entity which is perceiving the world and responding with rational actions, that is, actions that are favorable for some kind of goal. In the following sections you will learn how to define this goal and how to find the best actions for reaching it. For Tic-Tac-Toe a good start is building a game tree.
 
@@ -388,7 +393,7 @@ Imagine a game between two players, one called Max and the other Min. Max wants 
 
 We can now put these values on nodes in our game tree. For example, a node representing Max winning gets a 10. Now, think about it, if the current player is Max, then if the options are 10, 0 or -10, there’s no doubt, 10 will be chosen. If the current player is Min, -10 would be chosen without a doubt. This gives you the ability to predict your opponent's move, which is the basis for Minimax which you will soon implement.
 
-### 2. Implementation
+### AI Implementation
 
 Time to get coding! Try to follow the instructions, do not put too much care into understanding everything from the start, we will discuss it in section 3. We can’t jump directly to implementing minimax, the algorithm requires a couple of functions. Let’s start with these now!
 
@@ -503,7 +508,7 @@ else
 
 Enjoy your significantly optimized implementation. For Tic-Tac-Toe, on a modern computer, you might not notice much of a difference, but if you count the number of times minimax is called you see a quite significant difference! The following section will explain this optimization. But let’s start by taking a step back and look at our AI from a high level, and then move on to the alpha-beta optimization.
 
-### 3. Discussion
+### Discussion
 
 Phew! That’ was quite some code. By now you should have something working. Let’s start to think about what we have done, well, we wanted to implement minimax. You were given, to implement, the necessary parts for minimax, namely:
 
