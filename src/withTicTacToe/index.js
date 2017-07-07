@@ -10,14 +10,14 @@ const initialState = {
   games: []
 };
 
-const mapData  = () => ({
+const mapData = () => ({
   'client:init': (props, game) => ({ game, isInGame: isInGame(game), hasPendingGame: hasPendingGame(game) }),
   'client:move': (props, game) => ({ game }),
   'client:leave': () => ({ game: undefined, isInGame: false, hasPendingGame: false }),
   'client:lobby': (props, games) => ({ games })
 });
 
-const mapEmit  = (emit, { game, games, username, isInGame, hasPendingGame }) => ({
+const mapEmit = (emit, { game, games, username, isInGame, hasPendingGame }) => ({
   actions: {
     create: () => {
       if (hasPendingGame) {
@@ -26,9 +26,9 @@ const mapEmit  = (emit, { game, games, username, isInGame, hasPendingGame }) => 
         emit('create', { username });
       }
     },
-    join: () => {
+    join: (gameUid) => {
       if (games.length) {
-        emit('join', { username });
+        emit('join', { username, gameUid });
       } else {
         logError('There are no games present for you to join');
       }
