@@ -28,7 +28,7 @@ class TicTacToe extends React.Component {
         <h1>Hello {username}!</h1>
 
         <p>
-          <a href="http://35.189.249.30:8080/instructions">Check out the instructions to get started!</a>
+          <a href="https://github.com/TOA-Berlin-TicTacToe/toa-tic-tac-toe-starter-kit">Check out the instructions to get started!</a>
         </p>
       </div>
     );
