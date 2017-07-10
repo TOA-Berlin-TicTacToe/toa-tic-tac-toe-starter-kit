@@ -166,9 +166,9 @@ in more detail later.
   another player to join our game (also see `actions.create`)
 - `actions` (object) – This is an object with functions which communicate with the
   server. It comes with the following capabilities
-  - `reate()` -  Create a game for others to join. This also sets the
+  - `create()` -  Create a game for others to join. This also sets the
     boolean flag `hasPendingGame`
-  - `oin(gameUid)` - Join another game, represented by a `gameUid`. If you
+  - `join(gameUid)` - Join another game, represented by a `gameUid`. If you
     do NOT pass a gameUid, you will join a random game
   - `leave()` - Leave the game you are currently in, which negates the `hasPendingGame` boolean flag
   - `move({ x, y })` - In a game, make a next move, represented by an
