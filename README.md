@@ -2,6 +2,10 @@
 
 Welcome! As promised, we will guide you through building your own Tic-Tac-Toe client this evening. We have provided you with some code already, so that you can quickly get started. This document will briefly explain what React is, the code we provided you with and help you through implementing a fully working tic-tac-toe client that can play on our game server.
 
+![artboard 2x](https://user-images.githubusercontent.com/2479967/28008679-d0297328-6558-11e7-956f-b2e340e7d19f.jpg)
+
+## Table of Contents
+
 * [React Client](#react-client)
   * [A React Primer](#a-react-primer)
   * [Tic-Tac-Toe Boilerplate Project](#tic-tac-toe-boilerplate-project)
@@ -367,7 +371,7 @@ Congratulations! You made it to the second part of this event. This document bri
 
 Have you ever thought about what intelligence really is? We need some kind of idea of intelligence in order to build it. A core concept in artificial intelligence is the study of intelligent agents. This concept offers one simple way of looking at intelligence. An intelligent agent is defined as an entity which is perceiving the world and responding with rational actions, that is, actions that are favorable for some kind of goal. In the following sections you will learn how to define this goal and how to find the best actions for reaching it. For Tic-Tac-Toe a good start is building a game tree.
 
-TODO IMAGE
+![artboard copy 2x](https://user-images.githubusercontent.com/2479967/28008678-d023fb46-6558-11e7-889e-0672058969b7.jpg)
 
 Fig 1. Visualization of an intelligent agent. It is observing the environment and based on observations performs actions. Imagine a flower which turns it leaves towards the sun as it observes sunlight from a specific direction because it wants to be exposed to as much sunlight as possible.
 
@@ -377,7 +381,7 @@ When computationally tractable one can create a tree of all possible outcomes of
 
 A common technique for this is called Minimax. It is famous for being used to beat the world championship Garry Kasparov in chess 1997.
 
-TODO IMAGE
+![artboard copy 2 2x](https://user-images.githubusercontent.com/2479967/28008675-cff9e70c-6558-11e7-8434-cd339d96f6b0.jpg)
 
 Fig. 2. An example of a partial game tree. Note that given our state (the root) the game can evolve in different ways depending on our action. If we place our X in the middle we win. Any other action might lead to that we lose, since we give the opponent the possibility to win.
 
@@ -517,7 +521,7 @@ Phew! That’ was quite some code. By now you should have something working. Let
 
 We then created a bunch of helper methods, like `didPlayerWin(board, player)` so that we could implement these. We didn’t really talk much about minimax itself. What is actually going on? Well, as mentioned in section 1, minimax is based on the Min will try to minimize the score while Max will try to maximize the score. This allows us to predict actions as the game goes on. If Min can chose, Min will always chose a path going towards a final state where the score is -10, 0 or as a last resort 10. Max will do the opposite. When considering the start (empty board) we can’t say much. But by simulating games (performing action after action) we can find all possible outcomes. Once we found an outcome where we win, we can see if this outcome is reachable by playing the game backwards. If not, we try another outcome where we win (or get the highest possible score). See fig. 4 for a visualization of leaf nodes and their associated scores.
 
-TODO IMAGE
+![artboard copy 3 2x](https://user-images.githubusercontent.com/2479967/28008676-d018bc40-6558-11e7-91e0-9090dcae428b.jpg)
 
 Fig. 4. A game tree with values attached to leaf nodes (states where someone won or there’s a draw). Min will try to get a state of -10, 0 and as a last resort 10. Max will go for 10, 0 and as a last resort -10. Knowing this allows us to predict actions for both Max and Min. We start at a leaf node and look at the previous player's turn to see if we would ever end up in this leaf node. You can think of this as the score bubbling up from the bottom to the root’s direct children.
 
@@ -578,7 +582,7 @@ A good way to understand Alpha-Beta Pruning is to simulate it: http://homepage.u
 
 Run through the simulation stepwise. Note that they keep track of Min’s (second level) best choice as β and Max’s (root) best choice as α. Once we get to the middle subtree’s first leaf node, we learn that Min will chose a node of at most 2. Since we already have an option which can give us (the player Max) 3, we do not explore this subtree anymore. Because even if both other options would give 1000, Min would choose 2. If they would give 1, it doesn’t matter, because we already know of a better option, namely the left subtree which gives us 3. If the leaf nodes of the middle subtree would be in a different order, namely 6, 4 and 2, we would have to evaluate all of them, since only the last option is worse than our know path for getting 3. See fig 5.
 
-TODO IMAGE
+![artboard copy 4 2x](https://user-images.githubusercontent.com/2479967/28008677-d023a498-6558-11e7-8a30-745576e7d96a.jpg)
 
 Fig 5. The bold number at the bottom (in the leaf nodes) have been explored. Once we get to the middle subtree, we already know of a path of actions that will give us 3 (the leftmost subtree). So as we discover the 2 in the middle subtree, we already know that we (Max) would never chose the middle subtree, since the highest possible score there is 2 (since it is Min’s turn). So we do not explore the middle subtree more but move on to the rightmost subtree. Note that if the order of the nodes would be 6, 4 and 2 in the middle subtree, we would have to evaluate all of them, since only the last node would allow us to discard the subtree.
 
