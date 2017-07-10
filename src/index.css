@@ -28,4 +28,10 @@ body:before {
 
 body {
     font-family: avenir, Helvetica, sans-serif;
+    color: #424548;
+    margin: 1.3rem;
+}
+
+a {
+    color: #4595d8;
 }
