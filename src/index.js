@@ -9,13 +9,13 @@ import { setSocketConfig } from 'react-with-socket';
 const USERNAME = '[please provide your username]';
 
 setSocketConfig({
-    base: '35.189.249.30:8080',
-    constructor: io
+  base: '35.189.249.30:8080',
+  constructor: io
 });
 
 ReactDOM.render(
-    <TicTacToe username={getUsername()} ai={ai} />,
-    document.getElementById('root')
+  <TicTacToe username={getUsername()} ai={ai} />,
+  document.getElementById('root')
 );
 
 function getUsername() {
