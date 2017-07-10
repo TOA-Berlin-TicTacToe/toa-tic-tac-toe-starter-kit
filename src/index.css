@@ -11,3 +11,7 @@ body:before {
     background-size: contain;
     pointer-events: none;
 }
+
+body {
+    font-family: avenir, Helvetica, sans-serif;
+}
