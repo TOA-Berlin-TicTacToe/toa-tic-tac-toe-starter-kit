@@ -373,7 +373,7 @@ Have you ever thought about what intelligence really is? We need some kind of id
 
 ![artboard copy 2x](https://user-images.githubusercontent.com/2479967/28008678-d023fb46-6558-11e7-889e-0672058969b7.jpg)
 
-Fig 1. Visualization of an intelligent agent. It is observing the environment and based on observations performs actions. Imagine a flower which turns it leaves towards the sun as it observes sunlight from a specific direction because it wants to be exposed to as much sunlight as possible.
+*Fig 1. Visualization of an intelligent agent. It is observing the environment and based on observations performs actions. Imagine a flower which turns it leaves towards the sun as it observes sunlight from a specific direction because it wants to be exposed to as much sunlight as possible.*
 
 #### 1.1 Game Tree
 
@@ -383,7 +383,7 @@ A common technique for this is called Minimax. It is famous for being used to be
 
 ![artboard copy 2 2x](https://user-images.githubusercontent.com/2479967/28008675-cff9e70c-6558-11e7-8434-cd339d96f6b0.jpg)
 
-Fig. 2. An example of a partial game tree. Note that given our state (the root) the game can evolve in different ways depending on our action. If we place our X in the middle we win. Any other action might lead to that we lose, since we give the opponent the possibility to win.
+*Fig. 2. An example of a partial game tree. Note that given our state (the root) the game can evolve in different ways depending on our action. If we place our X in the middle we win. Any other action might lead to that we lose, since we give the opponent the possibility to win.*
 
 #### 1.2 Minimax
 
@@ -523,7 +523,7 @@ We then created a bunch of helper methods, like `didPlayerWin(board, player)` so
 
 ![artboard copy 3 2x](https://user-images.githubusercontent.com/2479967/28008676-d018bc40-6558-11e7-91e0-9090dcae428b.jpg)
 
-Fig. 4. A game tree with values attached to leaf nodes (states where someone won or there’s a draw). Min will try to get a state of -10, 0 and as a last resort 10. Max will go for 10, 0 and as a last resort -10. Knowing this allows us to predict actions for both Max and Min. We start at a leaf node and look at the previous player's turn to see if we would ever end up in this leaf node. You can think of this as the score bubbling up from the bottom to the root’s direct children.
+*Fig. 4. A game tree with values attached to leaf nodes (states where someone won or there’s a draw). Min will try to get a state of -10, 0 and as a last resort 10. Max will go for 10, 0 and as a last resort -10. Knowing this allows us to predict actions for both Max and Min. We start at a leaf node and look at the previous player's turn to see if we would ever end up in this leaf node. You can think of this as the score bubbling up from the bottom to the root’s direct children.*
 
 We implemented this using recursion, the recursive part looks as following:
 
@@ -584,7 +584,7 @@ Run through the simulation stepwise. Note that they keep track of Min’s (secon
 
 ![artboard copy 4 2x](https://user-images.githubusercontent.com/2479967/28008677-d023a498-6558-11e7-8a30-745576e7d96a.jpg)
 
-Fig 5. The bold number at the bottom (in the leaf nodes) have been explored. Once we get to the middle subtree, we already know of a path of actions that will give us 3 (the leftmost subtree). So as we discover the 2 in the middle subtree, we already know that we (Max) would never chose the middle subtree, since the highest possible score there is 2 (since it is Min’s turn). So we do not explore the middle subtree more but move on to the rightmost subtree. Note that if the order of the nodes would be 6, 4 and 2 in the middle subtree, we would have to evaluate all of them, since only the last node would allow us to discard the subtree.
+*Fig 5. The bold number at the bottom (in the leaf nodes) have been explored. Once we get to the middle subtree, we already know of a path of actions that will give us 3 (the leftmost subtree). So as we discover the 2 in the middle subtree, we already know that we (Max) would never chose the middle subtree, since the highest possible score there is 2 (since it is Min’s turn). So we do not explore the middle subtree more but move on to the rightmost subtree. Note that if the order of the nodes would be 6, 4 and 2 in the middle subtree, we would have to evaluate all of them, since only the last node would allow us to discard the subtree.*
 
 If you would like a good and thorough explanation of minimax, alpha-beta pruning and more, we encourage you to check out https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/lecture-videos/lecture-6-search-games-minimax-and-alpha-beta/
 
