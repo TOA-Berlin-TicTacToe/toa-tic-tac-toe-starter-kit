@@ -15,7 +15,7 @@ Welcome! As promised, we will guide you through building your own Tic-Tac-Toe cl
 
 ### A React Primer
 
-(feel free to skip this part if you have React experience)
+*Hint: Feel free to skip this part if you have React experience.*
 
 In this event you will use React in your client-side application to implement a Tic-Tac-Toe game. React is a view-layer library that simplifies the process of implementing an UI. It gives you all the necessary tools to build a web application for your browser. As many other view-layer libraries, React is a component driven library. Components are arranged in a tree hierarchy. You will start to implement a first root component but eventually will add more child components to it.
 
