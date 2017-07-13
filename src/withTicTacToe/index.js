@@ -65,6 +65,17 @@ const callbacks = () => ({
         props.actions.move(nextPosition);
       }
     }
+  },
+  'client:init': (props, game) => {
+    const { ai, username } = props;
+    if (ai && ai.move && username === game.turn) {
+      // we could be nice and benchmark here, so that we immediately
+      // report back to people how long their AI takes to make a move ;)
+      const nextPosition = ai.move(game);
+      if (nextPosition) {
+        props.actions.move(nextPosition);
+      }
+    }
   }
 });
 

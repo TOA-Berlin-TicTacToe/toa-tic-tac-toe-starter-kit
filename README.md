@@ -247,7 +247,7 @@ Therefore we need to receive 3 properties:
 
 ```javascript
 function Lobby({ games, onJoin, onCreate }) {
-  // ...
+  return null;
 }
 ```
 
@@ -275,7 +275,7 @@ need the following properties:
 
 ```javascript
 function Game({ game, username, onMove, onLeave }) {
-  // ...
+  return null;
 }
 ```
 
