@@ -6,7 +6,7 @@ import './style.css';
 //
 // {
 //   gameUid: 'someId',
-//   players: ['max', 'moritz']
+//   players: ['max', 'moritz'],
 //   turn: 'moritz',
 //   board: [
 //     ['max', 'moritz', ''],
