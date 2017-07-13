@@ -14,7 +14,7 @@ const mapData = () => ({
   'client:init': (props, game) => ({ game, isInGame: isInGame(game), hasPendingGame: hasPendingGame(game) }),
   'client:move': (props, game) => ({ game }),
   'client:leave': () => ({ game: undefined, isInGame: false, hasPendingGame: false }),
-  'client:lobby': (props, games) => ({ games })
+  'client:lobby': (props, games) => ({ games: (games || []).filter(game => game.players[0] !== props.username) })
 });
 
 const mapEmit = (emit, { game, games, username, isInGame, hasPendingGame }) => ({
