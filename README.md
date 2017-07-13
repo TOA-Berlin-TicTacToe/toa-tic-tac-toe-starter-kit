@@ -302,7 +302,7 @@ Example of a board object:
 ```javascript
 {
   gameUid: 'someId',
-  players: ['max', 'moritz']
+  players: ['max', 'moritz'],
   turn: 'moritz',
   board: [
     ['max', 'moritz', ''],
