@@ -5,7 +5,7 @@ describe('ai', () => {
     it('finds the best next move I', () => {
       const game = {
         players: ['x', 'o'],
-        turn: ['o'],
+        turn: 'o',
         board: [
           ['x', '', ''],
           ['', '', ''],
@@ -20,7 +20,7 @@ describe('ai', () => {
     it('finds the best next move II', () => {
       const game = {
         players: ['x', 'o'],
-        turn: ['o'],
+        turn: 'o',
         board: [
           ['x', 'x', 'o'],
           ['o', '', ''],
@@ -35,7 +35,7 @@ describe('ai', () => {
     it('finds the best next move III', () => {
       const game = {
         players: ['x', 'o'],
-        turn: ['o'],
+        turn: 'o',
         board: [
           ['x', 'o', 'x'],
           ['o', 'o', ''],
