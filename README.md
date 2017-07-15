@@ -36,7 +36,7 @@ class TicTacToe extends React.Component {
 }
 ```
 
-A React component returns JSX. It is a syntax that allows you to mix HTML and JavaScript. The JavaScript ends up in curly braces between the HTML. That way you can make conditional renderings (e.g. with a ternary operator) too:
+A React component returns [JSX](https://facebook.github.io/react/docs/introducing-jsx.html). It is a syntax that allows you to mix HTML and JavaScript. The JavaScript ends up in curly braces between the HTML. That way you can make conditional renderings (e.g. with a ternary operator) too:
 
 ```javascript
 class TicTacToe extends React.Component {
@@ -108,7 +108,7 @@ function Username(props) {
 }
 ```
 
-The props in the function signature can be destructured by JavaScript ES6.
+The props in the function signature can be [destructured](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) by JavaScript ES6.
 
 ```javascript
 function Username({ username }) {
@@ -116,7 +116,7 @@ function Username({ username }) {
 }
 ```
 
-That’s it. With that knowledge you can already start to build UIs with React.
+That’s it! With that knowledge you can already start to build UIs with React.
 
 ### Tic-Tac-Toe Boilerplate Project
 
@@ -124,7 +124,7 @@ During this event you will build a Tic-Tac-Toe client. Therefore we provide you 
 
 In addition, we already provide you with the main functionalities of a Tic-Tac-Toe game to send and receive updates from our Tic-Tac-Toe game server. The game server is already up and running for you to play against each other later on.
 
-To get started, you would have to checkout the GitHub repository on the command line:
+To get started you would have to checkout the GitHub repository, e.g. on the command line:
 
 ```
 git clone git@github.com:TOA-Berlin-TicTacToe/toa-tic-tac-toe-starter-kit.git
@@ -138,7 +138,7 @@ The second step would be to start your client application:
 npm start
 ```
 
-You can open the application in your browser to confirm that it is working. In addition, you can start to open the boilerplate project in your favorite editor. Basically you would start to write your application in `src/TicTacToe/index.js`. There you will implement your first React component.
+The application should automatically open up in your browser ([http://localhost:3000](http://localhost:3000)) if the build succeeded. In addition, you can start to open the boilerplate project in your favorite editor. Basically you would start to write your application in `src/TicTacToe/index.js`. There you will implement your first React component.
 
 As you can see, the React component with the name `TicTacToe` already receives props. These props are already provided by us by having a higher order component: `withTicTacToe`. It’s ok if you don’t know about higher order components. We only provide you with one to interact with the Tic-Tac-Toe game server and to receive updates from it.
 
@@ -156,8 +156,8 @@ Back in `src/TicTacToe/index.js` we find our root component, which already recei
 
 - `username` (string) – This is the username we just provided in the `src/index.js` file.
 - `game` (object) – The game object which holds all information about participating
-  players, the current board state etc. We'll have a look at this object
-in more detail later.
+  players, the current board state etc. (We'll have a look at this object
+in more detail later.)
 - `games` (array) – A list of games created by other users, which we can join to
   play against them
 - `isInGame` (bool) – A boolean which tells us whether we're currently playing or
@@ -265,6 +265,8 @@ To make our `Lobby` useful we need to do the following:
 - Display a list of `games`. Each list item should be a button we can
   click to join a game by calling `onJoin(game.gameUid)`
 
+*Hint: To handle button clicks, you should use `onClick` in combination with an arrow function. If you assign the callback to the onClick prop directly, the callback function will be triggered every time the button is rendered! (Check ["Handling Events"](https://facebook.github.io/react/docs/handling-events.html) for more info on this.)*
+
 *Hint: The game object contains a list of all participating players (`game.players`). All games, because they are joinable, have only one player in the list pof players.Use this to associate a name with the game (`game.players[0]`)*
 
 
@@ -279,7 +281,7 @@ function Game({ game, username, onMove, onLeave }) {
 }
 ```
 
-And pass it from the `Tic-Tac-Toe component`:
+And pass it from the `Tic-Tac-Toe` component:
 
 ```javascript
 <Game username={username} game={game} onMove={move} onLeave={leave} />
@@ -514,7 +516,7 @@ Enjoy your significantly optimized implementation. For Tic-Tac-Toe, on a modern 
 
 ### Discussion
 
-Phew! That’ was quite some code. By now you should have something working. Let’s start to think about what we have done, well, we wanted to implement minimax. You were given, to implement, the necessary parts for minimax, namely:
+Phew! That was quite some code. By now you should have something working. Let’s start to think about what we have done, well, we wanted to implement minimax. You were given, to implement, the necessary parts for minimax, namely:
 
 1. getUtility
 2. getSuccessors
@@ -590,6 +592,5 @@ If you would like a good and thorough explanation of minimax, alpha-beta pruning
 
 Thank you for your participation, we hope you learned much and had a fun time!
 
-Cheers,
+Cheers,  
 Small Improvements
-
